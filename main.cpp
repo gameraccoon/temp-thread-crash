@@ -1,16 +1,18 @@
 #include <thread>
+#include <iostream>
 
 int main()
 {
+	std::cout << "started\n" << std::flush;
 	auto thread = std::thread([]{});
 
 	if (thread.joinable())
 	{
 		thread.join();
-		return 0;
+		std::cout << "joined\n" << std::flush;
 	}
 	else
 	{
-		return 1;
+		std::cout << "not joinable\n" << std::flush;
 	}
 }
